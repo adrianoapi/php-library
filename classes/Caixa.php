@@ -3,7 +3,6 @@
 class Caixa
 {
 
-    private $saque;
     private $saldo;
     private $notas = array(100, 50, 20, 10, 5, 2);
 
@@ -23,7 +22,7 @@ class Caixa
     {
         if ($valor <= $this->saldo) {
             $this->getNotasSaque($valor);
-        }else{
+        } else {
             echo "Saldo insuficiente!";
         }
     }
@@ -39,24 +38,19 @@ class Caixa
      */
     private function getNotasSaque($valor)
     {
-        $i = $a = $soma = 0;
-        $notas = array(100, 50, 20, 10, 5, 2);
-        rsort($notas);
-        while ($i < count($notas)) :
+        $i = $j = 0;
+        rsort($this->notas);
+        while ($i < count($this->notas)) :
             # Menor quantidade de notas da maior possível                      
-            $qtd[$i] = floor($valor / $notas[$i]);
-
-            # soma +1 a cada interação                     
-            $soma += $qtd[$i];
+            $qtd[$i] = floor($valor / $this->notas[$i]);
 
             # Subtrai a quantidade de dinheiro já calculada do valor                      
-            $valor = $valor - ($qtd[$i] * $notas[$i]);
+            $valor = $valor - ($qtd[$i] * $this->notas[$i]);
             $i++;
         endwhile;
-
-        while ($a < count($notas)) :
-            echo ($qtd[$a] > 1 ? $qtd[$a]." notas" : $qtd[$a]." nota")." de " . $notas[$a] . "<br/>";
-            $a++;
+        while ($j < count($this->notas)) :
+            echo ($qtd[$j] > 1 ? $qtd[$j] . " notas" : $qtd[$j] . " nota") . " de " . $this->notas[$j] . "<br/>";
+            $j++;
         endwhile;
     }
 
@@ -67,4 +61,4 @@ $obj->setDeposito(500);
 $obj->setDeposito(700);
 echo $obj->getExtrato();
 echo "<hr>";
-echo $obj->setSaque(775);
+echo $obj->setSaque(778);
