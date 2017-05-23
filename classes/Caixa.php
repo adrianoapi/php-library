@@ -22,7 +22,9 @@ class Caixa
     public function setSaque($valor)
     {
         if ($valor <= $this->saldo) {
-            $this->notas_saque($valor);
+            $this->getNotasSaque($valor);
+        }else{
+            echo "Saldo insuficiente!";
         }
     }
 
@@ -31,20 +33,29 @@ class Caixa
         return $this->saldo;
     }
 
-    public function notas_saque($valor)
+    /**
+     * Lógica da liberação de notas
+     * @param type $valor
+     */
+    private function getNotasSaque($valor)
     {
-        $notas = rsort($this->notas);
         $i = $a = $soma = 0;
-
+        $notas = array(100, 50, 20, 10, 5, 2);
+        rsort($notas);
         while ($i < count($notas)) :
+            # Menor quantidade de notas da maior possível                      
             $qtd[$i] = floor($valor / $notas[$i]);
+
+            # soma +1 a cada interação                     
             $soma += $qtd[$i];
+
+            # Subtrai a quantidade de dinheiro já calculada do valor                      
             $valor = $valor - ($qtd[$i] * $notas[$i]);
             $i++;
         endwhile;
 
         while ($a < count($notas)) :
-            echo " $qtd[$a]x notas de " . $notas[$a] . "<br>";
+            echo ($qtd[$a] > 1 ? $qtd[$a]." notas" : $qtd[$a]." nota")." de " . $notas[$a] . "<br/>";
             $a++;
         endwhile;
     }
@@ -53,5 +64,7 @@ class Caixa
 
 $obj = new Caixa();
 $obj->setDeposito(500);
-$obj->setDeposito(750);
+$obj->setDeposito(700);
 echo $obj->getExtrato();
+echo "<hr>";
+echo $obj->setSaque(775);
