@@ -54,6 +54,11 @@ class Caixa
         endwhile;
     }
 
+    public function getCedulas()
+    {
+        
+    }
+
 }
 
 $obj = new Caixa();
