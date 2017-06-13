@@ -2,12 +2,12 @@
 
 namespace Automovel;
 
-class Carro
+class Aviao
 {
 
     public function andar()
     {
-        echo "<p>anda</p>";
+        echo "<p>voa</p>";
     }
 
 }

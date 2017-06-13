@@ -2,12 +2,12 @@
 
 namespace Automovel;
 
-class Carro
+class Barco
 {
 
     public function andar()
     {
-        echo "<p>anda</p>";
+        echo "<p>veleja</p>";
     }
 
 }
