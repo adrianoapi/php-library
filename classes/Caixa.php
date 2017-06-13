@@ -56,7 +56,14 @@ class Caixa
 
     public function getCedulas()
     {
-        
+        $arr = [
+            100 => "Cem",
+            50 => "Cinquenta",
+            20 => "Vinte",
+            10 => "Dez",
+            5 => "Cinco",
+            2 => "Dois"
+        ];
     }
 
 }
