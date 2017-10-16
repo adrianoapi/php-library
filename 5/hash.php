@@ -11,3 +11,7 @@ if (password_verify($pass, $hash)) {
 } else {
     echo false;
 }
+
+$array = password_get_info($hash);
+echo "<pre>";
+print_r($array);
