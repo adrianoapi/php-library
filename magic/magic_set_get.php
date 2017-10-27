@@ -14,6 +14,17 @@ class Titulo
         }
     }
 
-    
+    public function getValor()
+    {
+        $vecto = new DateTime($this->data[$dt_vencimento]);
+        $agora = new DateTime('now');
+        if ($vecto < $agora) {
+            $interval = $vecto->diff($agora);
+            $days = $interval->days;
+            return $this->data['valor'] + $this->data['multa'] + ($this->data['valor'] * $this->data['juros'] * $days);
+        } else {
+            return $this->data['valor'];
+        }
+    }
 
 }
