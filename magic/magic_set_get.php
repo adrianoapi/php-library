@@ -52,7 +52,7 @@ class Titulo
 
 try {
     $titulo = new Titulo;
-    $titulo->dt_vencimento = '2017-05-20';
+    $titulo->dt_vencimento = '2017-10-20';
     $titulo->valor = 12345;
     $titulo->multa = 2;
     $titulo->juros = 0.01;
