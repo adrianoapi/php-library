@@ -36,4 +36,9 @@ class Titulo
         }
     }
 
+    public function setVencimento()
+    {
+        
+    }
+
 }
