@@ -48,6 +48,8 @@ class Caixa
             $valor = $valor - ($qtd[$i] * $this->notas[$i]);
             $i++;
         endwhile;
+        
+        # imprime a quantidade da nota
         while ($j < count($this->notas)) :
             echo ($qtd[$j] > 1 ? $qtd[$j] . " notas" : $qtd[$j] . " nota") . " de " . $this->notas[$j] . "<br/>";
             $j++;
