@@ -27,4 +27,13 @@ class Titulo
         }
     }
 
+    public function __set($proprieada, $valor)
+    {
+        if ($proprieada == 'dt_vencimento') {
+            $this->setVencimento($valor);
+        } else {
+            $this->data[$proprieada] = $valor;
+        }
+    }
+
 }
