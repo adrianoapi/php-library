@@ -9,8 +9,10 @@ function radon_numbers()
             array_push($data, $r);
         }
     }
+    sort($data);
     return $data;
 }
+
 echo "<pre>";
 print_r(radon_numbers());
 echo "</pre>";
